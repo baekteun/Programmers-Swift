@@ -25,11 +25,7 @@ func solution(participant: [String], completion: [String]) -> String{
         dict[c] = dict[c]! - 1
     }
     
-    for (key, value) in dict{
-        if value != 0{
-            return key
-        }
-    }
+    let ordered = dict.sorted(by: {$0.value < $1.value })
     
-    return ""
+    return ordered.last!.key
 }
